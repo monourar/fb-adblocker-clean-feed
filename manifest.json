@@ -10,11 +10,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.ts-loader-CHC_CSfL.js",
-        "injects/fallback.js"
-      ],
-      "css": [
-        "injects/fallback.css"
+        "assets/index.ts-loader-CHC_CSfL.js"
       ],
       "matches": [
         "https://www.facebook.com/*",
