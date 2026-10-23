@@ -1,0 +1,42 @@
+/* FB AdBlocker & Clean Feed - Resilient Fallback Stylesheet */
+
+/* Instant hiding of sponsored right-rail containers */
+div[data-pagelet*="RightRail"] div:has(a[href*="/ads/about/"]),
+div[data-pagelet*="RightRail"] div:has(a[href*="/ad_preferences/"]),
+div[data-pagelet*="RightRail"] div:has(a[href*="/about/ads"]) {
+    display: none !important;
+}
+
+/* Instant hiding of standalone Reels pagelets and trays */
+div[data-pagelet*="Reels"],
+div[data-pagelet*="Stories"]:has(a[href*="/reel/"]),
+div[aria-label="Reels tray"],
+div[aria-label="Reels"] {
+    display: none !important;
+}
+
+/* Feed units marked by fallback script */
+.fbadblocker-hidden {
+    display: none !important;
+}
+
+/* Collapsed post placeholder (when clean mode is off) */
+.fbadblocker-collapsed-notice {
+    padding: 10px 16px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #65676B;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+:root[data-darkreader-scheme="dark"] .fbadblocker-collapsed-notice,
+.theme-dark .fbadblocker-collapsed-notice {
+    background: rgba(255, 255, 255, 0.05);
+    color: #B0B3B8;
+    border-color: rgba(255, 255, 255, 0.15);
+}

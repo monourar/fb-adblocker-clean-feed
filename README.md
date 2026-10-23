@@ -11,6 +11,9 @@ Forked and decrapified from the abandoned ESUIT extension: all dead remote serve
 - **🙈 Remove Reels:** Blocks Facebook Reels from feed streams, top feed trays, and standalone player pages.
 - **😽 Allow Friend's Reels:** Optional toggle to permit Reels created by your actual friends while blocking recommended algorithmic Reels.
 - **🏥 Remove Sponsored:** Filters out sponsored ad units from feeds, right rail, and sidebars.
+- **🔍 Custom Keyword Blocker (New):** Collapse or hide any feed post containing your custom keywords (politics, spoilers, specific brands).
+- **🛡️ Resilient DOM Fallback (New):** Hybrid engine pairing React/Relay component interception with a live DOM observer and CSS guard to survive Facebook UI updates.
+- **💾 Backup & Restore (New):** Export your custom keywords and toggle configuration to JSON, or restore on any machine.
 - **🤰 Remove Suggested For You:** Removes algorithmic suggestions, suggested pages, and recommendation cards.
 - **😷 Remove Groups You Might Like:** Hides suggested Facebook groups.
 - **🔞 Remove PYMK:** Hides "People You May Know" horizontal scrollers and grid panels.
@@ -46,6 +49,7 @@ Works on any Chromium-based browser (**Google Chrome**, **Brave**, **Microsoft E
 - **Manifest V3:** Modern MV3 background service worker (`service-worker-loader.js`).
 - **Main World Injection:** Injects `injects/proxy.js` into Facebook's React Comet frontend, hooking into `window.__d` and the Relay store for native client-side element removal before rendering.
 - **Declarative Net Request:** Uses `rules_1.json` to safely relax strict CSP headers so component overrides can hook the DOM without breaking page functionality.
+- **Resilient Fallback Engine:** `injects/fallback.js` and `injects/fallback.css` observe feed mutations to catch any ad units that evade React-level hooks.
 - **100% Offline & Local:** Uses `chrome.storage.local`. No external APIs, no tracking servers, no telemetry, no subscription verification.
 
 ---
