@@ -1,8 +1,8 @@
 {
-   "description": {
-      "message": "ADBlocker for Facebook, remove Reels, ads and so on"
-   },
-   "name": {
-      "message": "ESUIT | AD Blocker for Facebook™"
-   }
+  "description": {
+    "message": "Open-source ad blocker for Facebook: remove Reels, sponsored posts, suggested content, and clutter."
+  },
+  "name": {
+    "message": "FB AdBlocker & Clean Feed (Open Source)"
+  }
 }

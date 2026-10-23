@@ -5,7 +5,7 @@
 (function () {
     function cleanPopup() {
         // Hide cross promo elements or dead store links if present
-        const promoLinks = document.querySelectorAll('a[href*="esuit.dev"], a[href*="buymeacoffee"]');
+        const promoLinks = document.querySelectorAll('a[href*="buymeacoffee"]');
         promoLinks.forEach(el => el.closest('.ant-space-item')?.remove() || el.remove());
 
         // Add direct link to options page if not already present

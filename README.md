@@ -2,7 +2,7 @@
 
 A privacy-focused, zero-telemetry, fully offline open-source browser extension that blocks Facebook ads, Reels, sponsored posts, suggested content, and feed distractions.
 
-Forked and decrapified from the abandoned ESUIT extension: all dead remote servers, telemetry tracking, and paywall restrictions have been stripped out. All features are 100% free, unlocked, and operate completely client-side.
+Forked and rewritten from an abandoned extension: all dead remote servers, telemetry tracking, and paywall restrictions have been stripped out. All features are 100% free, unlocked, and operate completely client-side.
 
 ---
 
