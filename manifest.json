@@ -10,20 +10,27 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.ts-loader-CHC_CSfL.js"
+        "assets/index.ts-loader-CHC_CSfL.js",
+        "injects/cleaner.js"
       ],
       "matches": [
-        "https://www.facebook.com/*",
-        "https://web.facebook.com/*"
+        "https://*.facebook.com/*",
+        "https://facebook.com/*"
       ],
       "run_at": "document_end"
     }
   ],
   "default_locale": "en",
   "description": "Open-source ad blocker for Facebook: remove Reels, sponsored posts, suggested content, and clutter.",
+  "externally_connectable": {
+    "matches": [
+      "https://*.facebook.com/*",
+      "https://facebook.com/*"
+    ]
+  },
   "host_permissions": [
-    "https://www.facebook.com/*",
-    "https://web.facebook.com/*"
+    "https://*.facebook.com/*",
+    "https://facebook.com/*"
   ],
   "icons": {
     "128": "src/assets/logo/favicon-128.png",
@@ -48,13 +55,14 @@
   "web_accessible_resources": [
     {
       "matches": [
-        "https://web.facebook.com/*",
-        "https://www.facebook.com/*"
+        "https://*.facebook.com/*",
+        "https://facebook.com/*"
       ],
       "resources": [
         "*",
         "assets/const-VfW2e5AY.js",
-        "assets/index.ts-BJHj831H.js"
+        "assets/index.ts-BJHj831H.js",
+        "injects/cleaner.js"
       ],
       "use_dynamic_url": false
     }
