@@ -165,16 +165,39 @@
             reader.onload = (event) => {
                 try {
                     const parsed = JSON.parse(event.target.result);
-                    chrome.storage.local.set(parsed, () => {
-                        if (Array.isArray(parsed.customKeywords)) {
-                            keywords = parsed.customKeywords;
+                    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+                        throw new Error('Root configuration must be a valid JSON object.');
+                    }
+
+                    // Only allow whitelist of expected keys: features, customKeywords, global
+                    const sanitized = {};
+                    if (parsed.customKeywords && Array.isArray(parsed.customKeywords)) {
+                        sanitized.customKeywords = parsed.customKeywords
+                            .filter(k => typeof k === 'string')
+                            .map(k => k.trim())
+                            .filter(Boolean);
+                    }
+                    if (parsed.features && typeof parsed.features === 'object' && !Array.isArray(parsed.features)) {
+                        sanitized.features = parsed.features;
+                    }
+                    if (parsed.global && typeof parsed.global === 'object' && !Array.isArray(parsed.global)) {
+                        sanitized.global = parsed.global;
+                    }
+
+                    if (Object.keys(sanitized).length === 0) {
+                        throw new Error('No recognized configuration settings found in the file.');
+                    }
+
+                    chrome.storage.local.set(sanitized, () => {
+                        if (Array.isArray(sanitized.customKeywords)) {
+                            keywords = sanitized.customKeywords;
                             renderTags();
                         }
                         showStatus('Settings imported successfully! Reloading...');
                         setTimeout(() => location.reload(), 1200);
                     });
                 } catch (err) {
-                    alert('Invalid JSON settings file: ' + err.message);
+                    alert('Invalid settings file: ' + err.message);
                 }
             };
             reader.readAsText(file);

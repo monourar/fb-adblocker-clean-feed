@@ -168,6 +168,9 @@
         return null;
     }
 
+    const SPONSORED_LABEL_REGEX = /^(sponsored|advertisement|sponsrad|promoted|gesponsert|commandit[eé]|patrocinado|مُموَّل)(\s*[\cdot•·\-\—\|]|\s+paid|\s+by|\s*$)/i;
+    const SPONSORED_TEXT_REGEX = /^(sponsored|advertisement)(\s*[\cdot•·\-\—\|]|\s+paid|\s+by|\s*$)/i;
+
     function isSponsored(post) {
         // Direct ad links
         if (post.querySelector('a[href*="/ads/about"], a[href*="/ad_preferences"], a[href*="/about/ads"], a[href*="facebook.com/ads/"]')) {
@@ -177,7 +180,7 @@
         const ariaEls = post.querySelectorAll('[aria-label]');
         for (let i = 0; i < ariaEls.length; i++) {
             const label = (ariaEls[i].getAttribute('aria-label') || '').trim();
-            if (/^(sponsored|advertisement|sponsrad|promoted|gesponsert|commandit[eé]|patrocinado|مُموَّل)$/i.test(label)) {
+            if (SPONSORED_LABEL_REGEX.test(label)) {
                 return true;
             }
         }
@@ -185,7 +188,7 @@
         const links = post.querySelectorAll('a[role="link"], span[role="button"]');
         for (let i = 0; i < links.length; i++) {
             const t = (links[i].textContent || '').trim();
-            if (/^sponsored$/i.test(t) || /^advertisement$/i.test(t)) {
+            if (SPONSORED_TEXT_REGEX.test(t)) {
                 return true;
             }
         }
@@ -196,13 +199,13 @@
         if (post.querySelector('a[href*="/reel/"], a[href*="/reels/"]')) return true;
         const pagelet = post.getAttribute('data-pagelet') || '';
         if (pagelet.includes('Reels') || pagelet.includes('Shorts')) return true;
-        const text = (post.innerText || '').slice(0, 200);
+        const text = (post.textContent || '').slice(0, 300);
         if (text.includes('Reels and short videos') || text.includes('Facebook Reels')) return true;
         return false;
     }
 
     function isSuggested(post) {
-        const text = (post.innerText || '').slice(0, 300);
+        const text = (post.textContent || '').slice(0, 400);
         return text.includes('Suggested for you') ||
                text.includes('Suggested for You') ||
                text.includes('Suggested group') ||
@@ -211,7 +214,7 @@
 
     function checkKeywords(post) {
         if (!settings.customKeywords.length) return false;
-        const text = (post.innerText || '').toLowerCase();
+        const text = (post.textContent || '').toLowerCase();
         for (const kw of settings.customKeywords) {
             if (kw && text.includes(kw)) return kw;
         }
