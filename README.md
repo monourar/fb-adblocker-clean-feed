@@ -1,76 +1,83 @@
 # FB AdBlocker & Clean Feed (Open Source)
 
+> **Enjoy Facebook without the clutter.** Blocks ads, sponsored posts, Reels, and algorithmic recommendations. 100% free, private, and runs entirely on your computer.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-success.svg)](manifest.json)
-[![Privacy](https://img.shields.io/badge/Privacy-Zero%20Telemetry-brightgreen.svg)](README.md)
-
-A privacy-focused, zero-telemetry, fully offline open-source browser extension that blocks Facebook ads, Reels, sponsored posts, suggested content, and feed distractions.
-
-All features are 100% free, unlocked, client-side, and contain no remote servers, tracking, or telemetry.
+[![Zero Telemetry](https://img.shields.io/badge/Privacy-100%25%20Offline-brightgreen.svg)](#privacy--safety)
+[![Open Source](https://img.shields.io/badge/Open%20Source-Contributions%20Welcome-orange.svg)](CONTRIBUTING.md)
 
 ---
 
-## Features
+## 🌟 Why Use This?
 
-- **🎬 Remove Reels:** Blocks Facebook Reels from feed streams, top feed trays, and standalone player pages.
-- **👥 Allow Friends' Reels:** Optional toggle to permit Reels created by your actual friends while blocking algorithmic Reels.
-- **🛡️ Remove Sponsored:** Filters out sponsored ad units from feeds, right rail, and sidebars.
-- **🔍 Custom Keyword Blocker:** Collapse or hide any feed post containing your custom keywords (politics, spoilers, specific brands).
-- **⚡ Resilient DOM Cleaner:** Real-time mutation observer engine (`injects/cleaner.js`) that purges ads and keywords dynamically even after Facebook DOM updates.
-- **💾 Backup & Restore:** Export your custom keywords and toggle configuration to JSON, or restore them across devices.
-- **📌 Remove Suggested For You:** Removes algorithmic suggestions, suggested pages, and recommendation cards.
-- **👥 Remove Groups You Might Like:** Hides suggested Facebook groups.
-- **🤝 Remove People You May Know (PYMK):** Hides horizontal scrollers and grid panels for suggested friends.
-- **🛒 Remove Marketplace Ads:** Strips sponsored listings inside Facebook Marketplace.
-- **🔎 Remove Search Ads:** Blocks sponsored entries from Facebook search results.
-- **📖 Remove Stories:** Removes Facebook Stories tray.
-- **🎂 Remove Birthday Reminders:** Hides right-side birthday reminder blocks.
-- **🔔 Remove Notifications:** Blocks floating bottom-left toast alerts.
-- **✨ Clean Mode:** Hides placeholder notices for a seamless, distraction-free feed.
+Facebook has become noisy. Every few posts, you see:
+- 🚫 Sponsored advertisements and products you don't care about.
+- 🎬 Endless short video Reels designed to keep you scrolling.
+- 📌 "Suggested for you" pages and posts from strangers.
+- 👥 "Groups you might like" and "People you may know" filling your feed.
+
+**This extension gives you back a clean, quiet Facebook.** It hides the noise and only shows what you actually came to see: posts from your friends, followed pages, and joined groups.
 
 ---
 
-## Installation (Unpacked Extension)
+## 🚀 Easy 3-Minute Setup (No Technical Skills Needed)
 
-Works on any Chromium-based browser (**Google Chrome**, **Brave**, **Microsoft Edge**, **Opera**, **Vivaldi**, **Arc**):
+Works on any browser based on Chromium (**Google Chrome**, **Brave**, **Microsoft Edge**, **Opera**, **Vivaldi**):
 
-1. **Clone or download** this repository:
-   ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
-   ```
-2. Open your browser's extension manager:
-   - **Chrome:** `chrome://extensions`
-   - **Brave:** `brave://extensions`
-   - **Edge:** `edge://extensions`
-3. Turn on the **Developer mode** toggle in the top-right corner.
-4. Click **Load unpacked**.
-5. Select the repository root folder (the directory containing `manifest.json`).
-6. Navigate to [facebook.com](https://www.facebook.com) and click the extension icon in your browser toolbar to customize settings.
+### Step 1: Download the Files
+1. Click the green **Code** button at the top of this GitHub page.
+2. Click **Download ZIP**.
+3. Extract (unzip) the downloaded folder somewhere easy to find, like your **Desktop** or **Documents**.
+
+### Step 2: Open Extensions in Your Browser
+- **Chrome:** Type `chrome://extensions` in your address bar and press **Enter**.
+- **Edge:** Type `edge://extensions` in your address bar and press **Enter**.
+- **Brave:** Type `brave://extensions` in your address bar and press **Enter**.
+
+### Step 3: Turn on Developer Mode & Load
+1. Turn on the switch labeled **Developer mode** (top-right corner).
+2. Click the button that says **Load unpacked** (top-left corner).
+3. Select the folder you extracted in Step 1 (the folder that contains `manifest.json`).
+
+🎉 **You're all done!** Open [facebook.com](https://www.facebook.com) to enjoy your clean feed.
 
 ---
 
-## Permissions & Privacy
+## 🎛️ How to Use It
 
-This extension runs completely client-side with zero network requests:
+Click the puzzle piece icon 🧩 at the top right of your browser, then click **FB AdBlocker & Clean Feed**:
 
-| Permission | Purpose |
+| Feature | What It Does In Plain English |
 | :--- | :--- |
-| `storage` | Stores your toggle preferences, counter metrics, and custom keywords locally via `chrome.storage.local`. |
-| `scripting` | Injects the cleaner script and Relay store hooks into facebook.com tabs. |
-| `declarativeNetRequest` | Relaxes strict CSP headers locally on Facebook pages so hooks can operate without breaking React functionality. |
+| **Remove Sponsored** | Hides all paid advertisements from your feed and sidebars. |
+| **Remove Reels** | Removes the video Reels shelf and standalone Reels player. |
+| **Allow Friends' Reels** | Lets you see Reels posted by your real friends while blocking random viral ones. |
+| **Remove Suggested** | Hides "Suggested for you" posts and page recommendations. |
+| **Remove Groups/PYMK** | Hides "Groups you might like" and "People you may know" widgets. |
+| **Custom Keywords** | Type any word (like "crypto", "election", or "spoiler") to automatically hide posts mentioning it. |
+| **Clean Mode** | Hides placeholder messages so the feed looks smooth and seamless. |
 
 ---
 
-## Technical Architecture
+## 🔒 Privacy & Safety
 
-- **Manifest V3:** Background service worker (`service-worker-loader.js`).
-- **Main World Injection:** Hooks into `window.__d` and the Relay store (`injects/proxy.js`, `injects/vendors.js`, `injects/index.js`) to prevent ad and reel elements from rendering.
-- **Isolated World Cleaner:** Real-time MutationObserver fallback (`injects/cleaner.js`) ensuring resilient DOM suppression and real-time counter tracking.
-- **Declarative Net Request:** Uses `rules_1.json` for CSP adjustments.
-- **100% Offline:** Zero external tracking, zero analytics, zero remote API calls.
+- **Zero Tracking:** This extension has **zero servers** and **zero telemetry**. It cannot see your passwords, credit cards, or messages.
+- **100% Offline:** Everything runs inside your browser. No data ever leaves your computer.
+- **No Account Needed:** No signup, no email, no payments. All features are free forever.
 
 ---
 
-## License
+## 🤝 For Contributors & AI Assistants
 
-MIT License. See [LICENSE](LICENSE) for details.
+This project is completely open source under the MIT license. Everyone (and every AI!) is welcome to help make it better:
+
+- **For everyday users who want more help:** Read the [User Guide](docs/USER_GUIDE.md) and [FAQ](docs/FAQ.md).
+- **For human developers:** Read [CONTRIBUTING.md](CONTRIBUTING.md) and [Technical Architecture](docs/ARCHITECTURE.md).
+- **For AI coding agents (Claude, ChatGPT, Cursor, Copilot):** Read [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) for full architecture context and edit boundaries.
+
+---
+
+## 📄 License
+
+Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
