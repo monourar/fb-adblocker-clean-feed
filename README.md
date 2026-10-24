@@ -2,6 +2,7 @@
 
 > **Enjoy Facebook without the clutter.** Blocks ads, sponsored posts, Reels, and algorithmic recommendations. 100% free, private, and runs entirely on your computer.
 
+[![GitHub Release](https://img.shields.io/github/v/release/monourar/fb-adblocker-clean-feed)](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-success.svg)](manifest.json)
 [![Zero Telemetry](https://img.shields.io/badge/Privacy-100%25%20Offline-brightgreen.svg)](#privacy--safety)
@@ -26,8 +27,7 @@ Facebook has become noisy. Every few posts, you see:
 Works on any browser based on Chromium (**Google Chrome**, **Brave**, **Microsoft Edge**, **Opera**, **Vivaldi**):
 
 ### Step 1: Download the Files
-1. Click the green **Code** button at the top of this GitHub page.
-2. Click **Download ZIP**.
+1. Download **[`fb-adblocker-clean-feed-v2.10.1.zip`](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest)** directly from the [Releases page](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest) (or click the green **Code** button -> **Download ZIP**).
 3. Extract (unzip) the downloaded folder somewhere easy to find, like your **Desktop** or **Documents**.
 
 ### Step 2: Open Extensions in Your Browser
