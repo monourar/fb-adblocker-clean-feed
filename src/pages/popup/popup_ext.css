@@ -1,0 +1,378 @@
+/* ==========================================================================
+   Apple Design System - FB AdBlocker & Clean Feed Popup
+   macOS Sequoia HIG / Fluid Physics / Translucent Materials
+   ========================================================================== */
+
+:root {
+    --apple-canvas: #0a0e14;
+    --apple-surface: rgba(255, 255, 255, 0.04);
+    --apple-surface-hover: rgba(255, 255, 255, 0.065);
+    --apple-surface-active: rgba(255, 255, 255, 0.08);
+    --apple-border: rgba(255, 255, 255, 0.08);
+    --apple-border-light: rgba(255, 255, 255, 0.12);
+    --apple-separator: rgba(255, 255, 255, 0.05);
+    --apple-top-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    
+    /* Typography */
+    --label-primary: #f8fafc;
+    --label-secondary: #94a3b8;
+    --label-tertiary: #64748b;
+    
+    /* Apple Human Interface Accents */
+    --apple-green: #34c759;
+    --apple-green-glow: rgba(52, 199, 89, 0.28);
+    --apple-track-off: rgba(120, 120, 128, 0.32);
+    --accent-sky: #38bdf8;
+    --accent-emerald: #34d399;
+    --accent-amber: #fbbf24;
+    
+    /* Materials & Springs */
+    --glass-material: blur(28px) saturate(180%);
+    --apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --apple-fast: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Base Viewport */
+html, body {
+    width: 370px !important;
+    min-width: 370px !important;
+    max-width: 370px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: var(--apple-canvas) !important;
+    color: var(--label-primary) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.012em;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+body .App {
+    padding: 16px 14px 14px 14px !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   Header Section
+   ========================================================================== */
+
+body .header {
+    padding: 2px 2px 12px 2px !important;
+    margin-bottom: 8px !important;
+    border-bottom: none !important;
+}
+
+body .header .ant-space {
+    align-items: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+}
+
+body .header .ant-avatar {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    border: 1px solid var(--apple-border-light) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), var(--apple-top-highlight) !important;
+    background: #111827 !important;
+    flex-shrink: 0 !important;
+}
+
+body .header span[style*="font-weight"],
+body .header .ant-space span {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.018em !important;
+    color: var(--label-primary) !important;
+    line-height: 1.3 !important;
+}
+
+/* Status indicator badge under title */
+.ext-status-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: var(--label-secondary) !important;
+    letter-spacing: -0.01em !important;
+    margin-top: 1px !important;
+}
+
+.ext-status-dot {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: var(--apple-green) !important;
+    box-shadow: 0 0 8px var(--apple-green) !important;
+    display: inline-block !important;
+}
+
+/* Strict elimination of obsolete header artifacts & version labels */
+body .header a[href*="what"],
+body .header a[href*="whats-new"],
+body .header a[target="_blank"],
+body .header span[style*="color: #999"],
+body .header span[style*="color: rgb(153, 153, 153)"],
+span[style*="display: flex"][style*="height: 42"],
+.promo-exts, [class*="promo"], .dont-show-me-again,
+hr.ant-divider, .ant-divider-horizontal {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Metrics / Stats Card (Apple macOS Glass Plaque)
+   ========================================================================== */
+
+body div[style*="justify-content: center"][style*="flex-direction: row"] {
+    margin: 6px 0 14px 0 !important;
+    padding: 12px 10px !important;
+    background: var(--apple-surface) !important;
+    backdrop-filter: var(--glass-material) !important;
+    -webkit-backdrop-filter: var(--glass-material) !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--apple-border) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), var(--apple-top-highlight) !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
+}
+
+body div[style*="justify-content: center"][style*="flex-direction: row"] > .ant-space {
+    display: contents !important;
+}
+
+.ant-statistic {
+    padding: 2px 4px !important;
+    text-align: center !important;
+    position: relative !important;
+}
+
+/* Inset vertical separators between metric columns */
+.ant-statistic:not(:last-child)::after {
+    content: "" !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 12% !important;
+    bottom: 12% !important;
+    width: 1px !important;
+    background: var(--apple-separator) !important;
+}
+
+.ant-statistic-title {
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--label-secondary) !important;
+    margin-bottom: 3px !important;
+}
+
+.ant-statistic-content-value {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    font-variant-numeric: tabular-nums !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1.15 !important;
+}
+
+.ant-statistic:nth-child(1) .ant-statistic-content-value {
+    color: var(--accent-sky) !important;
+}
+
+.ant-statistic:nth-child(2) .ant-statistic-content-value {
+    color: var(--accent-emerald) !important;
+}
+
+.ant-statistic:nth-child(3) .ant-statistic-content-value {
+    color: var(--accent-amber) !important;
+}
+
+/* ==========================================================================
+   Features Grouped Card (Apple Inset Grouped List)
+   ========================================================================== */
+
+.features-box {
+    padding: 0 !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--apple-surface) !important;
+    backdrop-filter: var(--glass-material) !important;
+    -webkit-backdrop-filter: var(--glass-material) !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--apple-border) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), var(--apple-top-highlight) !important;
+    overflow: hidden !important;
+}
+
+.features-box .feature-item {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--apple-separator) !important;
+    transition: background 140ms var(--apple-fast) !important;
+}
+
+.features-box .feature-item:last-child {
+    border-bottom: none !important;
+}
+
+.features-box .feature-item:hover {
+    background: var(--apple-surface-hover) !important;
+}
+
+.features-box .feature-item label {
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.012em !important;
+    color: var(--label-primary) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    padding-right: 12px !important;
+    flex: 1 !important;
+}
+
+.features-box .feature-item label span[dangerouslysetinnerhtml],
+.features-box .feature-item label svg {
+    margin-right: 9px !important;
+    flex-shrink: 0 !important;
+    transition: transform 160ms var(--apple-spring) !important;
+}
+
+.features-box .feature-item:hover label svg {
+    transform: scale(1.08) !important;
+}
+
+/* ==========================================================================
+   Apple Physical Toggle Switch (Strictly No Text - Pure Capsule)
+   ========================================================================== */
+
+.ant-switch {
+    background-color: var(--apple-track-off) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    height: 24px !important;
+    line-height: 22px !important;
+    border-radius: 9999px !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+    transition: background-color 220ms var(--apple-spring), border-color 220ms var(--apple-spring) !important;
+}
+
+/* Active tactile squeeze */
+.ant-switch:active {
+    transform: scale(0.96) !important;
+    transition: transform 100ms ease-out !important;
+}
+
+/* Circular Pure White Knob Handle */
+.ant-switch .ant-switch-handle {
+    width: 20px !important;
+    height: 20px !important;
+    top: 1px !important;
+    left: 2px !important;
+    position: absolute !important;
+    z-index: 2 !important;
+    transition: left 220ms var(--apple-spring), width 120ms ease-out !important;
+}
+
+.ant-switch .ant-switch-handle::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35), 0 0 1px rgba(0, 0, 0, 0.2) !important;
+    transition: all 200ms var(--apple-spring) !important;
+}
+
+/* Interactive thumb stretch on click (Apple fluid touch) */
+.ant-switch:active .ant-switch-handle {
+    width: 23px !important;
+}
+
+/* CHECKED (ON) STATE */
+.ant-switch.ant-switch-checked {
+    background-color: var(--apple-green) !important;
+    border-color: rgba(52, 199, 89, 0.45) !important;
+    box-shadow: 0 2px 10px var(--apple-green-glow), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-switch.ant-switch-checked .ant-switch-handle {
+    left: calc(100% - 22px) !important;
+}
+
+/* Banish all inner text permanently ("on", "off", or any labels) */
+.ant-switch-inner,
+.ant-switch-inner-checked,
+.ant-switch-inner-unchecked,
+.ant-switch *[class*="inner"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================================================
+   Advanced Settings Button (macOS Sequoia Glass Pill)
+   ========================================================================== */
+
+#ext-open-options-btn {
+    padding-top: 10px !important;
+    margin-top: 10px !important;
+    border-top: none !important;
+}
+
+.ext-options-action-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 9px 14px !important;
+    min-height: 38px !important;
+    background: var(--apple-surface) !important;
+    backdrop-filter: var(--glass-material) !important;
+    -webkit-backdrop-filter: var(--glass-material) !important;
+    border: 1px solid var(--apple-border) !important;
+    border-radius: 11px !important;
+    color: var(--label-secondary) !important;
+    font-size: 12.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), var(--apple-top-highlight) !important;
+    transition: all 180ms var(--apple-spring) !important;
+}
+
+.ext-options-action-btn:hover {
+    background: var(--apple-surface-hover) !important;
+    border-color: var(--apple-border-light) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), var(--apple-top-highlight) !important;
+}
+
+.ext-options-action-btn:active {
+    background: var(--apple-surface-active) !important;
+    transform: scale(0.98) !important;
+}

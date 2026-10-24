@@ -1,0 +1,514 @@
+/* ==========================================================================
+   Clean Obsidian Design System - Options & Settings
+   A refined, calm, ultra-clean dark interface
+   ========================================================================== */
+
+:root {
+    --bg-canvas: #0c1017;
+    --card-surface: rgba(21, 28, 40, 0.85);
+    --card-surface-hover: rgba(28, 38, 54, 0.90);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-border-hover: rgba(56, 189, 248, 0.25);
+    --separator: rgba(255, 255, 255, 0.06);
+    --label-primary: #f8fafc;
+    --label-secondary: #94a3b8;
+    --label-tertiary: #64748b;
+    --accent-emerald: #10b981;
+    --accent-sky: #38bdf8;
+    --accent-amber: #fbbf24;
+    --accent-indigo: #818cf8;
+    --control-bg: rgba(255, 255, 255, 0.12);
+    --radius-card: 16px;
+    --radius-btn: 10px;
+    --radius-pill: 9999px;
+    --glass-blur: blur(20px) saturate(160%);
+    --smooth-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+    background-color: var(--bg-canvas) !important;
+    min-height: 100vh;
+}
+
+/* Page canvas */
+body {
+    background-color: var(--bg-canvas) !important;
+    background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(56, 189, 248, 0.08), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(129, 140, 248, 0.04), transparent 70%) !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    color: var(--label-primary) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.012em;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header bar */
+.header {
+    background: rgba(12, 16, 23, 0.85) !important;
+    backdrop-filter: var(--glass-blur) !important;
+    -webkit-backdrop-filter: var(--glass-blur) !important;
+    border-bottom: 1px solid var(--separator) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    height: 64px !important;
+    padding: 0 32px;
+}
+
+.header .left .ant-avatar {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.header .left .ant-typography {
+    font-size: 16.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+    color: var(--label-primary) !important;
+}
+
+/* Cards */
+.ant-card {
+    background: var(--card-surface) !important;
+    backdrop-filter: var(--glass-blur) !important;
+    -webkit-backdrop-filter: var(--glass-blur) !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: var(--radius-card) !important;
+    box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    overflow: hidden;
+    margin-bottom: 24px !important;
+    transition: border-color 200ms ease, box-shadow 200ms ease !important;
+}
+
+.ant-card:hover {
+    border-color: var(--card-border-hover) !important;
+}
+
+.ant-card-head {
+    background: rgba(255, 255, 255, 0.01) !important;
+    border-bottom: 1px solid var(--separator) !important;
+    padding: 18px 24px !important;
+    min-height: 54px !important;
+}
+
+.ant-card-head-title,
+.ant-card-head-title span {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: var(--label-primary) !important;
+    letter-spacing: -0.018em !important;
+}
+
+.ant-card-body {
+    padding: 20px 24px !important;
+}
+
+/* Feature Rows */
+.ant-card-body > div > div > div[style*="flex-direction: row"],
+.ant-card-body div[style*="justify-content: space-between"] {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--separator) !important;
+    border-radius: 0 !important;
+    padding: 14px 8px !important;
+    min-height: 52px !important;
+    box-sizing: border-box !important;
+    margin-bottom: 0 !important;
+    transition: background 120ms ease-out !important;
+}
+
+.ant-card-body > div > div > div[style*="flex-direction: row"]:last-child,
+.ant-card-body div[style*="justify-content: space-between"]:last-child {
+    border-bottom: none !important;
+}
+
+.ant-card-body > div > div > div[style*="flex-direction: row"]:hover,
+.ant-card-body div[style*="justify-content: space-between"]:hover {
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.ant-card-body label {
+    font-size: 14.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    color: var(--label-primary) !important;
+    cursor: pointer;
+}
+
+/* Feature Icon Uniform Badges */
+.ant-card-body label span[style*="inline-flex"] > span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    flex-shrink: 0 !important;
+}
+
+/* Switch Component - Authentic Apple Design Capsule */
+.ant-switch {
+    background-color: var(--control-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    max-width: 44px !important;
+    height: 24px !important;
+    line-height: 22px !important;
+    border-radius: var(--radius-pill) !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+    transition: background-color 220ms var(--smooth-ease), border-color 220ms var(--smooth-ease) !important;
+}
+
+.ant-switch:active {
+    transform: scale(0.96) !important;
+}
+
+.ant-switch .ant-switch-handle {
+    width: 20px !important;
+    height: 20px !important;
+    top: 1px !important;
+    left: 2px !important;
+    position: absolute !important;
+    z-index: 2 !important;
+    transition: left 220ms var(--smooth-ease), width 120ms ease-out !important;
+}
+
+.ant-switch .ant-switch-handle::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35), 0 0 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ant-switch:active .ant-switch-handle {
+    width: 23px !important;
+}
+
+.ant-switch.ant-switch-checked {
+    background-color: var(--accent-emerald) !important;
+    border-color: rgba(16, 185, 129, 0.45) !important;
+    box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+.ant-switch.ant-switch-checked .ant-switch-handle {
+    left: calc(100% - 22px) !important;
+}
+
+/* Strictly hide all inner text ("on", "off") */
+.ant-switch-inner,
+.ant-switch-inner-checked,
+.ant-switch-inner-unchecked,
+.ant-switch *[class*="inner"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Statistics Counter Cards */
+.ant-statistic {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 12px !important;
+    padding: 16px 28px !important;
+    min-width: 140px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+    transition: background 180ms ease, border-color 180ms ease !important;
+}
+
+.ant-statistic:hover {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.ant-statistic-title {
+    color: var(--label-secondary) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px !important;
+}
+
+.ant-statistic-content-value {
+    font-weight: 700 !important;
+    font-size: 32px !important;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+/* Custom Keyword Card */
+.ext-settings-card {
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.ext-settings-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    color: var(--label-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ext-settings-card p {
+    color: var(--label-secondary);
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.ext-keyword-input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ext-keyword-input-row input {
+    flex: 1;
+    padding: 11px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: var(--radius-btn);
+    color: var(--label-primary);
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: all 180ms var(--smooth-ease);
+}
+
+.ext-keyword-input-row input:focus {
+    border-color: var(--accent-sky);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.ext-keyword-input-row input::placeholder {
+    color: var(--label-tertiary);
+}
+
+.ext-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    min-height: 42px;
+    border-radius: var(--radius-btn);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 180ms var(--smooth-ease);
+    user-select: none;
+}
+
+.ext-btn:active {
+    transform: scale(0.97);
+}
+
+.ext-btn-primary {
+    background: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.35);
+}
+
+.ext-btn-primary:hover {
+    background: #1d4ed8;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+}
+
+.ext-btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--label-primary);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.ext-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.ext-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 40px;
+    padding: 8px 0;
+}
+
+.ext-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(56, 189, 248, 0.08);
+    color: #7dd3fc;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 140ms ease;
+}
+
+.ext-tag:hover {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.35);
+}
+
+.ext-tag-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 120ms ease, color 120ms ease;
+}
+
+.ext-tag-remove:hover {
+    opacity: 1;
+    color: #f87171;
+}
+
+.ext-actions-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Status message alert toast */
+#ext-status-msg {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(18, 24, 34, 0.95);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    color: var(--label-primary);
+    padding: 12px 20px;
+    border-radius: var(--radius-btn);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    font-size: 13.5px;
+    font-weight: 500;
+    z-index: 9999;
+}
+
+/* Footer */
+.footer {
+    background: rgba(12, 16, 23, 0.85) !important;
+    border-top: 1px solid var(--separator) !important;
+    box-shadow: none !important;
+}
+
+.footer .container {
+    color: var(--label-secondary) !important;
+    font-size: 13px !important;
+    padding: 0 32px;
+}
+
+/* ==========================================================================
+   GitHub Community Card (Apple macOS Glass Plaque)
+   ========================================================================== */
+
+.ext-github-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(56, 189, 248, 0.03) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: var(--radius-card) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    margin-top: 24px !important;
+}
+
+.ext-github-card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.ext-github-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ext-github-icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f8fafc;
+    flex-shrink: 0;
+}
+
+.ext-github-title {
+    margin: 0 0 4px 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--label-primary);
+}
+
+.ext-github-desc {
+    margin: 0;
+    color: var(--label-secondary);
+    font-size: 13px;
+    line-height: 1.45;
+    max-width: 540px;
+}
+
+.ext-github-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ext-star-btn {
+    background: linear-gradient(180deg, #1f2937 0%, #111827 100%) !important;
+    border: 1px solid rgba(251, 191, 36, 0.4) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    text-decoration: none !important;
+}
+
+.ext-star-btn:hover {
+    border-color: rgba(251, 191, 36, 0.7) !important;
+    box-shadow: 0 4px 14px rgba(251, 191, 36, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
