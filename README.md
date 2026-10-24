@@ -27,8 +27,8 @@ Facebook has become noisy. Every few posts, you see:
 Works on any browser based on Chromium (**Google Chrome**, **Brave**, **Microsoft Edge**, **Opera**, **Vivaldi**):
 
 ### Step 1: Download the Files
-1. Download **[`fb-adblocker-clean-feed-v2.10.1.zip`](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest)** directly from the [Releases page](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest) (or click the green **Code** button -> **Download ZIP**).
-3. Extract (unzip) the downloaded folder somewhere easy to find, like your **Desktop** or **Documents**.
+1. Download **[`fb-adblocker-clean-feed-v1.0.0.zip`](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest)** directly from the [Releases page](https://github.com/monourar/fb-adblocker-clean-feed/releases/latest) (or click the green **Code** button -> **Download ZIP**).
+2. Extract (unzip) the downloaded folder somewhere easy to find, like your **Desktop** or **Documents**.
 
 ### Step 2: Open Extensions in Your Browser
 - **Chrome:** Type `chrome://extensions` in your address bar and press **Enter**.

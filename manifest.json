@@ -50,8 +50,8 @@
     "storage",
     "declarativeNetRequest"
   ],
-  "version": "2.10.1",
-  "version_name": "2.10.1-opensource",
+  "version": "1.0.0",
+  "version_name": "1.0.0",
   "web_accessible_resources": [
     {
       "matches": [
